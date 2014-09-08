@@ -1,6 +1,6 @@
 VoincaMagazine
 ========================
-Welcome to the VoincaMagazine, in this app we include the following basic featur like post blog, comment, Api's, FeedRSS, and simple search using Zen Lucene, but we still keep working. Hope we can give more for you!!!
+Welcome to the VoincaMagazine, in this app we include the following basic featur like post blog, comment, Api's, FeedRSS, simple search using Zen Lucene, and the back end using Sonata Admin Bundle, but we still keep working. Hope we can give more for you!!!
 
 Symfony Standard Edition
 ========================

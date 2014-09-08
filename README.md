@@ -1,3 +1,7 @@
+VoincaMagazine
+========================
+Welcome to the VoincaMagazine, in this app we include the following post blog, comment, Api's, FeedRSS, but we still keep working. Hope we can give more for you!!!
+
 Symfony Standard Edition
 ========================
 

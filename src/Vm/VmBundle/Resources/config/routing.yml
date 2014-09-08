@@ -1,0 +1,30 @@
+vm_vm_homepage:
+    path:     /
+    defaults: { _controller: VmVmBundle:Knowledge:index }
+VmVmBundle_vm_knowledge:
+        resource: "@VmVmBundle/Resources/config/routing/knowledge.yml"
+        prefix:   /vm-knowledge
+VmVmBundle_vm-category:
+        resource: "@VmVmBundle/Resources/config/routing/category.yml"
+        prefix:   /vm-category
+VmVmBundle_vm-affiliate:
+ resource: "@VmVmBundle/Resources/config/routing/affiliate.yml"
+ prefix: /vm-affiliate
+VmVmBundle_vm-commenter:
+        resource: "@VmVmBundle/Resources/config/routing/commenter.yml"
+        prefix:   /vm-commenter
+VmVmBundle_vm-comments:
+        resource: "@VmVmBundle/Resources/config/routing/comments.yml"
+        prefix:   /vm-comments
+login:
+ pattern: /login
+ defaults: {_controller: VmVmBundle:Default:login}
+login_check:
+ pattern: /login_check
+logout:
+ pattern: /logout
+VmVmBundle_api:
+ pattern: /api/{token}/knowledges.{_format}
+ defaults: {_controller: "VmVmBundle:Api:list"}
+ requirements:
+  _format: xml|json|yaml

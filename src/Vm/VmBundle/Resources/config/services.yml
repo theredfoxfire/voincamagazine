@@ -1,0 +1,44 @@
+parameters:
+#    vm_vm.example.class: Vm\VmBundle\Example
+
+services:
+ vm.vm.admin.category:
+  class: Vm\VmBundle\Admin\CategoryAdmin
+  tags:
+   - { name: sonata.admin, manager_type: orm, group: vm-admin, label: Categories }
+  arguments:
+   - ~
+   - Vm\VmBundle\Entity\Category
+   - 'VmVmBundle:CategoryAdmin'
+ vm.vm.admin.knowledge:
+  class: Vm\VmBundle\Admin\KnowledgeAdmin
+  tags:
+   - { name: sonata.admin, manager_type: orm, group: vm-admin, label: Knowledges }
+  arguments:
+   - ~
+   - Vm\VmBundle\Entity\Knowledge
+   - 'VmVmBundle:KnowledgeAdmin'
+ vm.vm.admin.comments:
+  class: Vm\VmBundle\Admin\CommentsAdmin
+  tags:
+   - { name: sonata.admin, manager_type: orm, group: vm-admin, label: Comments }
+  arguments:
+   - ~
+   - Vm\VmBundle\Entity\Comments
+   - 'VmVmBundle:CommentsAdmin'
+ vm.vm.admin.commenter:
+  class: Vm\VmBundle\Admin\CommenterAdmin
+  tags:
+   - { name: sonata.admin, manager_type: orm, group: vm-admin, label: Commenter }
+  arguments:
+   - ~
+   - Vm\VmBundle\Entity\Commenter
+   - 'VmVmBundle:CommenterAdmin'
+ vm.vm.admin.affiliate:
+  class: Vm\VmBundle\Admin\AffiliateAdmin
+  tags:
+   - { name: sonata.admin, manager_type: orm, group: vm-admin, label: Affiliate }
+  arguments:
+   - ~
+   - Vm\VmBundle\Entity\Affiliate
+   - 'VmVmBundle:AffiliateAdmin'

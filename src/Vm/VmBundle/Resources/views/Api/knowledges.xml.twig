@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<knowledges>
+{% for url, knowledge in knowledges %}
+    <knowledge url="{{ url }}">
+{% for key,value in knowledge %}
+        <{{ key }}>{{ value }}</{{ key }}>
+{% endfor %}
+    </knowledge>
+{% endfor %}
+</knowledges>

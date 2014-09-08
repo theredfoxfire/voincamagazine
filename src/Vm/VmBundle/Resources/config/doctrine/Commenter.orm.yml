@@ -1,0 +1,37 @@
+Vm\VmBundle\Entity\Commenter:
+ type: entity
+ repositoryClass: Vm\VmBundle\Repository\CommenterRepository
+ table: commenter
+ id:
+  id:
+   type: integer
+   generator: { strategy: AUTO }
+ fields:
+  nama:
+   type: string
+   length: 255
+  email:
+   type: string
+   length: 255
+   unique: true
+  token:
+   type: string
+   length: 255
+   unique: true
+  is_approved:
+   type: boolean
+   nullable: true
+  created_at:
+   type: datetime
+  updated_at:
+   type: datetime
+   nullable: true
+ oneToMany:
+  comments:
+   targetEntity: Comments
+   mappedBy: commenter
+ lifecycleCallbacks:
+  prePersist: [ setCreatedAtValue, setTokenValue ]
+  preUpdate: [ setUpdatedAtValue ]
+   
+ 

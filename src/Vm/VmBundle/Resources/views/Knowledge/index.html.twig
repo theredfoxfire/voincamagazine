@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+		{% block title %}
+                VoincaMagazine-Explore your brain!
+        {% endblock %}
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/reset.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/style.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/layout.css') }}" type="text/css" media="all" />
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/jquery-1.6.3.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/cufon-yui.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/cufon-replace.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/NewsGoth_400.font.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/NewsGoth_700.font.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/Vegur_300.font.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/FF-cash.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/jquery.easing.1.3.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/tms-0.3.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/tms_presets.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/close.js') }}"></script>
+        {% endblock %}
+		<!--[if lt IE 7]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/html5.js"></script>
+			<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+		<![endif]-->
+		
+		<link rel="icon" sizes="16x16" href="{{ asset('favicono.ico') }}" />
+		<link rel="alternate" type="application/atom+xml" title="Latest knowledge" href="{{ url('vm_knowledge', {'_format': 'atom'}) }}" />
+	</head>
+	<body id="page1">
+	<!--==============================header=================================-->
+		<header> 
+			<div class="main">
+				<div class="wrapper">
+					<h1>
+						<a href="index.html"><img src="{{ asset('bundles/vmvm/images/voinca-mn.png')}}"></a>
+						<strong>Creative Ideas</strong>
+					</h1>
+					<nav>
+						<ul class="menu">
+							
+							<li>
+								<form action="{{ path('vm_knowledge_search') }}" method="get">
+									<input class="cari" type="text" name="query" value="{{ app.request.get('query') }}" id="search_keywords" />
+									<input type="submit" class="button2" value="temukan" />
+									<a class="active" href="{{ path('vm_knowledge', {'_format': 'atom'}) }}"><img src="{{ asset('bundles/vmvm/images/feed.png')}}">Full feed</a>
+								</form>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div><div class="ic">More Website Templates @ TemplateMonster.com - October 31, 2011!</div>
+		</header>
+	<!--==============================content================================-->
+		<section id="content">
+			<div class="main">
+				<div class="slider-wrapper">
+					<div class="slider">
+						<ul class="items">
+							<li>
+								<img src="{{ asset('bundles/vmvm/images/slider-img1.jpg') }}" alt="" />
+								<strong class="banner">
+									<a class="close" href="#">x</a>
+									<strong>Progress</strong>
+									<span>Business Company</span>
+									<b class="margin-bot">Lorem ipsum dolor sit amet, consectetur adipisicing elitsedo eiusmod tempor incididunt ut labore dolore magna aliqua enim ad minim veniam.</b>
+									<a class="button2" href="#">Read More</a>
+								</strong>
+							</li>
+							<li>
+								<img src="{{ asset('bundles/vmvm/images/slider-img2p.jpg') }}" alt="" />
+								<strong class="banner">
+									<a class="close" href="#">x</a>
+									<strong>SpaSalon</strong>
+									<span>popular Procedures</span>
+									<b class="margin-bot">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit<br> in voluptate velit.</b>
+									<a class="button2" href="#">Read More</a>
+								</strong>
+							</li>
+							<li>
+								<img src="{{ asset('bundles/vmvm/images/slider-img3.jpg') }}" alt="" />
+								<strong class="banner">
+									<a class="close" href="#">x</a>
+									<strong>GoodCook</strong>
+									<span>Online cooking recipes</span>
+									<b class="margin-bot">Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia <br>deserunt mollit anim.</b>
+									<a class="button2" href="#">Read More</a>
+								</strong>
+							</li>
+							<li>
+								<img src="{{ asset('bundles/vmvm/images/slider-img4.jpg') }}" alt="" />
+								<strong class="banner">
+									<a class="close" href="#">x</a>
+									<strong>HandyMan</strong>
+									<span>Home Services</span>
+									<b class="margin-bot">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.</b>
+									<a class="button2" href="#">Read More</a>
+								</strong>
+							</li>
+						</ul>
+					</div>
+					<ul class="pagination">
+						<li><a class="item-1" href=""><strong>01</strong></a></li>
+						<li><a class="item-2" href=""><strong>02</strong></a></li>
+						<li><a class="item-3" href=""><strong>03</strong></a></li>
+						<li><a class="item-4" href=""><strong>04</strong></a></li>
+					</ul>
+				</div>
+				<div class="border-bot1 img-indent-bot">
+					<h2>Web design, Graphic design, Illustrations, Identity and <strong>Photographies by Our Design Studio</strong></h2>
+				</div>
+					    <div class="container_24">
+<ul class="list-2">
+{% for category in categories %}
+<div class="indent-bot">
+	<li><a class="item" href="{{ path('vm-category_show', { 'slug': category.slug }) }}">{{category.name}}</a></li>
+			{% for entity in category.newknowledge %}
+            <article class="grid_6">
+                <div class="box-1">
+                    <div class="inner">
+                       <!-- <h3></h3>-->
+                        <p class="p0">
+                          <strong class="str-1">
+                                {{ entity.title }}
+                            </strong>
+                        </p>
+                        <p>
+                           {{ entity.chunkknowledge }}
+                        </p>
+                        <div class="btn-container">
+                            <div class="button-box">
+                               <a href="{{ path('vm_knowledge_show', { 'category': entity.categoryslug, 'id': entity.id, 'title': entity.titleslug, 'writer': entity.writerslug }) }}" class="button">Lanjut...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+          {% endfor %}
+          <div class="clear"></div>
+          <div class="border-bot1 img-indent-bot">
+           {% if category.moreknowledge %}
+                       <br><br><li>dan <a href="{{ path('vm-category_show', { 'slug': category.slug }) }}">{{ category.moreknowledge }}</a>
+                        lainnya</li>
+                {% endif %}
+           </div>
+          </div>
+ {% endfor %}
+ </ul>
+            <div class="clear"></div>
+        
+		</div>
+			
+				<div class="wrapper">
+					<article class="col-1">
+						<div class="indent-left">
+							<ul class="list-1">
+								<li><a href="#">Lorem ipsum dolor amet</a></li>
+								<li><a href="#">Consectetur adipisicing elit sed</a></li>
+								<li><a href="#">Eiusmod tempor incididunt</a></li>
+								<li><a href="#">Labore etdolore magna</a></li>
+								<li><a href="#">Ut enim ad minim veniam</a></li>
+								<li><a href="#">Quis nostrud exercitation</a></li>
+								<li><a href="#">Ullamco laboris nisi ut aliquip</a></li>
+								<li><a href="#">Commodo consequat</a></li>
+								<li class="last-item"><a href="#">Duis aute irure reprehenderit</a></li>
+							</ul>
+						</div>
+					</article>
+				
+					<article class="col-2">
+						<h3>Welcome!</h3>
+						<div class="p1">
+							<figure class="img-border"><img src="{{ asset('bundles/vmvm/images/page1-img1.jpg') }}" alt="" /></figure>
+							<div class="clear"></div>
+						</div>
+						<p class="img-indent-bot">This <a href="http://blog.templatemonster.com/2011/10/31/free-website-template-slider-design-studio/">Design Studio Template</a> goes with two packages &#8211; with PSD source files (available for free for the registered members of Templates.com).</p>
+						<a class="button" href="#">Read More</a>
+					</article>
+					<article class="col-3">
+						<div class="indent-top">
+							<ul class="list-2">
+								<h3>Kategori:</h3>
+								{% for otherscategory in othercategory %}
+								<li>
+									<a class="item" href="{{ path('vm-category_show', { 'slug': otherscategory.slug }) }}">{{ otherscategory.name }}</a>
+								</li>
+								{% endfor %}
+								<li>
+									<a class="item" href="{{ path('vm-category') }}">Tampilkan Semua Kategori</a>
+								</li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+	<!--==============================footer=================================-->
+		<footer>
+			<div class="main">
+				<div class="wrapper border-bot2 margin-bot">
+					<article class="fcol-1">
+						<div class="indent-left">
+							<h3 class="color-1">Stay Connected</h3>
+							<ul class="list-services">
+								<li><a href="#">Facebook</a></li>
+								<li><a class="it-2" href="#">Twitter</a></li>
+								<li><a class="it-3" href="#">Linked In</a></li>
+								<li class="last-item"><a class="it-4" href="#">Del.ico.us</a></li>
+							</ul>
+						</div>
+					</article>
+					<article class="fcol-2">
+						<h3 class="color-1">Strategy Solution</h3>
+						<p class="p3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit velit esse.</p>
+						<a class="button2" href="#">Read More</a>
+					</article>
+					<article class="fcol-3">
+						<h3 class="color-1">Links</h3>
+						<ul class="list-3">
+							<li class="last-item"><a href="{{ path('vm_affiliate_new') }}">Full Api</a> <span> - Dapatkan VoincaMagazine Api!</span></li>
+						</ul>
+					</article>
+				</div>
+				<div class="aligncenter">
+					Design Studio &copy; 2011 <a rel="nofollow" class="color-1" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com<br>
+					Website Developtment by &copy; 2014 VoincaMagazine.com powered by <a href="http://www.symfony.com" target="blank"><img src="{{ asset('bundles/vmvm/images/symfony_white_mn.png')}}"></a>
+				</div>
+			</div>
+		</footer>
+		{% block javascriptsfoot %}
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/cufon.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/load.js') }}"></script>
+        {% endblock %}
+	</body>
+</html>

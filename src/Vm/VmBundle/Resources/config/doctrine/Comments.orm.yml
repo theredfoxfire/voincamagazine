@@ -1,0 +1,45 @@
+Vm\VmBundle\Entity\Comments:
+ type: entity
+ repositoryClass: Vm\VmBundle\Repository\CommentsRepository
+ table: comments
+ id:
+  id:
+   type: integer
+   generator: { strategy: AUTO }
+ fields:
+  ref_comments_id:
+   type: integer
+   nullable: true
+  comments:
+   type: text
+  token:
+   type: string
+   length: 255
+   unique: true
+  is_activated:
+   type: boolean
+   nullable: true
+  is_reply:
+   type: boolean
+   nullable: true
+  created_at:
+   type: datetime
+  updated_at:
+   type: datetime
+   nullable: true
+ manyToOne:
+  knowledges:
+   targetEntity: Knowledge
+   inversedBy: comments
+   joinColumn:
+    name: knowledge_id
+    referencedColumnName: id
+  commenter:
+   targetEntity: Commenter
+   inversedBy: comments
+   joinColumn:
+    name: commenter_id
+    referencedColumnName: id
+ lifecycleCallbacks:
+  prePersist: [ setCreatedAtValue, setTokenValue ]
+  preUpdate: [ setUpdatedAtValue ]

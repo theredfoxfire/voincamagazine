@@ -1,0 +1,29 @@
+{% extends 'VmVmBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="main">
+				<div class="indent-left">
+				<h3>Hasil Pencarian: "{{ query }}"</h3>
+					<div class="wrapper margin-bot">
+					{% for flashMessage in app.session.flashbag.get('notice') %}
+						<div class="flash_notice">
+							<p>{{ flashMessage }}</p>
+						</div>
+					{% endfor %}
+					{% for entity in knowledges %}
+					{% if loop.index%3 == 0 %}
+						<article class="col-2">
+					{% else %}
+						<article class="col-1">
+					{% endif %}
+							<div class="prev-indent-bot">
+								<figure class="img-border"><a href="#"><img src="{{ asset('bundles/vmvm/images/page3-img9.jpg') }}" alt="" /></a></figure>
+								<div class="clear"></div>
+							</div>
+							<h6><a class="link" target="blank" href="{{ path('vm_knowledge_show', { 'category': entity.categoryslug, 'id': entity.id, 'title': entity.titleslug, 'writer': entity.writerslug }) }}">{{ entity.title }}</a></h6>
+							<p class="p2">{{ entity.chunkknowledge }}</p>
+						</article>
+					{% endfor %}
+					</div>
+				</div>
+{% endblock %}

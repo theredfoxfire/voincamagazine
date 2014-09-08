@@ -1,0 +1,45 @@
+{% extends 'VmVmBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="main">
+	<div class="indent-left">
+    <div class="wrapper">
+		<h3>Daftar Kategori</h3>
+		<div class="border-bot1 img-indent-bot"></div>
+		<article class="col-1">
+						<div class="indent-top">
+							<ul class="list-2">
+								{% for entity in entities %}
+								{% if (0 < loop.index) and (loop.index <= 13) %}
+								<li><a href="{{ path('vm-category_show', { 'slug': entity.slug }) }}">{{ entity.name }}</a></li>
+								{% endif %}
+								{% endfor %}
+						</ul>
+					</div>
+		</article>
+		<article class="col-1">
+						<div class="indent-top">
+							<ul class="list-2">
+								{% for entity in entities %}
+								{% if (13 < loop.index) and (loop.index <= 26) %}
+								<li><a href="{{ path('vm-category_show', { 'slug': entity.slug }) }}">{{ entity.name }}</a></li>
+								{% endif %}
+								{% endfor %}
+						</ul>
+					</div>
+		</article>
+		<article class="col-2">
+						<div class="indent-top">
+							<ul class="list-2">
+								{% for entity in entities %}
+								{% if (26 < loop.index) and (loop.index <= 39) %}
+								<li><a href="{{ path('vm-category_show', { 'slug': entity.slug }) }}">{{ entity.name }}</a></li>
+								{% endif %}
+								{% endfor %}
+						</ul>
+					</div>
+		</article>
+	</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,260 @@
+<?php
+
+namespace Vm\VmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comment
+ */
+class Comment
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $nama;
+
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var string
+     */
+    private $comments;
+
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $knowledges;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->knowledges = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nama
+     *
+     * @param string $nama
+     * @return Comment
+     */
+    public function setNama($nama)
+    {
+        $this->nama = $nama;
+
+        return $this;
+    }
+
+    /**
+     * Get nama
+     *
+     * @return string 
+     */
+    public function getNama()
+    {
+        return $this->nama;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Comment
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set comments
+     *
+     * @param string $comments
+     * @return Comment
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return string 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Comment
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Add knowledges
+     *
+     * @param \Vm\VmBundle\Entity\Knowledge $knowledges
+     * @return Comment
+     */
+    public function addKnowledge(\Vm\VmBundle\Entity\Knowledge $knowledges)
+    {
+        $this->knowledges[] = $knowledges;
+
+        return $this;
+    }
+
+    /**
+     * Remove knowledges
+     *
+     * @param \Vm\VmBundle\Entity\Knowledge $knowledges
+     */
+    public function removeKnowledge(\Vm\VmBundle\Entity\Knowledge $knowledges)
+    {
+        $this->knowledges->removeElement($knowledges);
+    }
+
+    /**
+     * Get knowledges
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getKnowledges()
+    {
+        return $this->knowledges;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
+    }
+    /**
+     * @var string
+     */
+    private $token;
+
+    /**
+     * @var boolean
+     */
+    private $is_approved;
+
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return Comment
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set is_approved
+     *
+     * @param boolean $isApproved
+     * @return Comment
+     */
+    public function setIsApproved($isApproved)
+    {
+        $this->is_approved = $isApproved;
+
+        return $this;
+    }
+
+    /**
+     * Get is_approved
+     *
+     * @return boolean 
+     */
+    public function getIsApproved()
+    {
+        return $this->is_approved;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setTokenValue()
+    {
+        if(!$this->getToken())
+        {
+			$st = new \DateTime();
+			$st->$this->getEmail();
+			$this->token = sha1($st.rand(11111, 99999));
+		}
+    }
+}

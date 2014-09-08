@@ -1,0 +1,38 @@
+Vm\VmBundle\Entity\Commenter:
+ properties:
+  email:
+   - NotBlank: ~
+   - Email: ~
+  nama:
+   - NotBlank: ~
+Vm\VmBundle\Entity\Knowledge:
+ properties:
+  file:
+   - Image: ~
+  writer_email:
+   - NotBlank: ~
+   - Email: ~
+  writer:
+   - NotBlank: ~
+  title:
+   - NotBlank: ~
+  knowledge:
+   - NotBlank: ~
+  category:
+   - NotBlank: ~
+Vm\VmBundle\Entity\Comments:
+ properties:
+  comments:
+   - NotBlank: ~
+Vm\VmBundle\Entity\Affiliate:
+ constraints:
+  - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+ properties:
+  url:
+   - Url: ~
+  email:
+   - NotBlank: ~
+   - Email: ~
+  categories:
+   - NotBlank: ~
+   

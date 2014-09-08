@@ -1,0 +1,35 @@
+vm_knowledge:
+    path:     /
+    defaults: { _controller: "VmVmBundle:Knowledge:index" }
+
+vm_knowledge_show:
+    path:     /{category}/{writer}/{id}/{title}
+    defaults: { _controller: "VmVmBundle:Knowledge:show" }
+    requirements:
+     id: \d+
+
+vm_knowledge_new:
+    path:     /new
+    defaults: { _controller: "VmVmBundle:Knowledge:new" }
+
+vm_knowledge_create:
+    path:     /create
+    defaults: { _controller: "VmVmBundle:Knowledge:create" }
+    requirements: { _method: post }
+
+vm_knowledge_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VmVmBundle:Knowledge:edit" }
+
+vm_knowledge_update:
+    path:     /{id}/update
+    defaults: { _controller: "VmVmBundle:Knowledge:update" }
+    requirements: { _method: post|put }
+
+vm_knowledge_delete:
+    path:     /{token}/delete
+    defaults: { _controller: "VmVmBundle:Knowledge:delete" }
+    requirements: { _method: post|delete }
+vm_knowledge_search:
+ pattern: /search
+ defaults: { _controller: "VmVmBundle:Knowledge:search" }

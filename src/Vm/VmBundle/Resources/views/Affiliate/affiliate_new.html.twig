@@ -1,0 +1,50 @@
+{% extends 'VmVmBundle::layout.html.twig' %}
+
+{% set form_themes = _self %}
+
+{% block form_errors %}
+{% spaceless %}
+ {% if errors|length > 0 %}
+  <ul class="error_list">
+	{% for error in errors %}
+		<li> {{ error.meassageTemplate|trans(error.messageParameters, 'validators') }} </li>
+	{% endfor %}
+  </ul>
+ {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{% block content %}
+
+	<div class="main">
+				<div class="indent-left">
+					<div class="wrapper">
+					<p><h3>Dapatkan VoincaMagazine Api:</h3></p>
+					<article class="col-5">
+					
+					{{ form_start(form) }}
+						{{ form_errors(form) }}
+								<b>{{ form_label(form.url) }}</b>
+								{{ form_errors(form.url) }}
+							<br><label>
+								{{ form_widget(form.url, {'attr': {'class': 'cari'}}) }}
+							</label><br><br>
+								<b>{{ form_label(form.email) }}</b>
+								<font color="red">{{ form_errors(form.email) }}</font>
+							<br><label>
+								{{ form_widget(form.email, {'attr': {'class': 'cari'}}) }}
+							</label><br><br>
+								<b>{{ form_label(form.categories) }}</b>
+								{{ form_errors(form.categories) }}
+								{{ form_widget(form.categories) }}
+								
+							<div class="buttons-wrapper">
+								{{ form_widget(form.submit, {'attr': {'class': 'button'}}) }}
+							</div>
+						{{ form_end(form) }}
+						</article>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}

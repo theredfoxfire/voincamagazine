@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>VoincaMagazine-Explore your brain!</title>
+    <subtitle>Latest Knowledge</subtitle>
+    <link href="{{ url('vm_knowledge', {'_format': 'atom'}) }}" rel="self"/>
+    <link href="{{ url('vm_vm_homepage') }}"/>
+    <updated>{{ lastUpdated }}</updated>
+    <author><name>Vm</name></author>
+    <id>{{ feedId }}</id>
+ 
+    {% for category in categories %}
+    {% for entity in category.newknowledge %}
+        <entry>
+            <title>({{ entity.category }}) {{ entity.title }}</title>
+            <link href="{{ url('vm_knowledge_show', { 'category': entity.categoryslug, 'id': entity.id, 'title': entity.titleslug, 'writer': entity.writerslug }) }}" />
+            <id>{{ entity.id }}</id>
+            <updated>{{ entity.createdAt.format(constant('DATE_ATOM')) }}</updated>
+            <summary type="xhtml">
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    {% if entity.image %}
+                        <div>
+                                <img src="http://{{ app.request.host }}/uploads/knowledges/{{ entity.image }}" alt="{{ entity.title }} images" />
+                        </div>
+                    {% endif %}
+                    <div>
+                        {{ entity.chunkknowledge|nl2br }}
+                    </div>
+                </div>
+            </summary>
+            <author><name>{{ entity.writer }}</name></author>
+        </entry>
+    {% endfor %}
+{% endfor %}
+</feed>

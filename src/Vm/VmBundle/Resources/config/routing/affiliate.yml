@@ -1,0 +1,10 @@
+vm_affiliate_new:
+ pattern: /new
+ defaults: { _controller: "VmVmBundle:Affiliate:new" }
+vm_affiliate_create:
+ pattern: /create
+ defaults: { _controller: "VmVmBundle:Affiliate:create" }
+ requirements: { _method: post }
+vm_affiliate_wait:
+ pattern: /wait
+ defaults: { _controller: "VmVmBundle:Affiliate:wait" }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+		{% block title %}
+                VoincaMagazine-Explore your brain!
+        {% endblock %}
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/reset.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/style.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/layout.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/job.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/vmvm/css/jobs.css') }}" type="text/css" media="all" />
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/jquery-1.6.3.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/cufon-yui.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/cufon-replace.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/NewsGoth_400.font.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/NewsGoth_700.font.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/Vegur_300.font.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/FF-cash.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/jquery.easing.1.3.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/tms-0.3.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/tms_presets.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/close.js') }}"></script>
+        {% endblock %}
+		<!--[if lt IE 7]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/html5.js"></script>
+			<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+		<![endif]-->
+		<link rel="icon" sizes="16x16" href="{{ asset('favicono.ico') }}" />
+		<link rel="alternate" type="application/atom+xml" title="Latest knowledge" href="{{ url('vm_knowledge', {'_format': 'atom'}) }}" />
+	</head>
+	<body id="page2">
+	<!--==============================header=================================-->
+		<header>
+			<div class="main">
+				<div class="wrapper">
+					<h1>
+						<a href="index.html">DesignStudio</a>
+						<strong>Creative Ideas</strong>
+					</h1>
+					<nav>
+						<ul class="menu">
+							
+							<li>
+								<form action="{{ path('vm_knowledge_search') }}" method="get">
+									<input class="cari" type="text" name="query" value="{{ app.request.get('query') }}" id="search_keywords" />
+									<input type="submit" class="button2" value="temukan" />
+									<a class="active" href="{{ path('vm_knowledge', {'_format': 'atom'}) }}"><img src="{{ asset('bundles/vmvm/images/feed.png')}}">Full feed</a>
+								</form>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div><div class="ic">More Website Templates @ TemplateMonster.com - October 31, 2011!</div>
+		</header>
+	<!--==============================content================================-->
+	
+	<section id="content">
+	{% block content %}
+	{% endblock %}
+	</section>
+	
+	<!--==============================footer=================================-->
+		<footer>
+			<div class="main">
+				<div class="wrapper border-bot2 margin-bot">
+					<article class="fcol-1">
+						<div class="indent-left">
+							<h3 class="color-1">Stay Connected</h3>
+							<ul class="list-services">
+								<li><a href="#">Facebook</a></li>
+								<li><a class="it-2" href="#">Twitter</a></li>
+								<li><a class="it-3" href="#">Linked In</a></li>
+								<li class="last-item"><a class="it-4" href="#">Del.ico.us</a></li>
+							</ul>
+						</div>
+					</article>
+					<article class="fcol-2">
+						<h3 class="color-1">Strategy Solution</h3>
+						<p class="p3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit velit esse.</p>
+						<a class="button2" href="#">Read More</a>
+					</article>
+					<article class="fcol-3">
+						<h3 class="color-1">Links</h3>
+						<ul class="list-3">
+							<li class="last-item"><a href="{{ path('vm_affiliate_new') }}">Full Api</a> <span> - Dapatkan VoincaMagazine Api!</span></li>
+						</ul>
+					</article>
+				</div>
+				<div class="aligncenter">
+					Design Studio &copy; 2011 <a rel="nofollow" class="color-1" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com<br>
+					Website Developtment by &copy; 2014 VoincaMagazine.com powered by <a href="http://www.symfony.com" target="blank"><img src="{{ asset('bundles/vmvm/images/symfony_white_mn.png')}}"></a>
+				</div>
+			</div>
+		</footer>
+		{% block javascriptsfoot %}
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/cufon.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/vmvm/js/load.js') }}"></script>
+        {% endblock %}
+	</body>
+</html>

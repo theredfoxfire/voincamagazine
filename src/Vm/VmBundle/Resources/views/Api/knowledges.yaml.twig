@@ -1,0 +1,6 @@
+{% for url,knowledge in knowledges %}
+    Url: {{ url }}
+{% for key, value in knowledge %}
+        {{ key }}: {{ value }}
+{% endfor %}
+{% endfor %}

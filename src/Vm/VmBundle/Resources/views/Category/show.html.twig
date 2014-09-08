@@ -1,0 +1,60 @@
+{% extends 'VmVmBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="main">
+				<div class="indent-left">
+					<h3>{{ category.name }}</h3>
+					<div class="wrapper margin-bot">
+					{% for entity in category.newknowledge %}
+					{% if loop.index%3 == 0 %}
+						<article class="col-2">
+					{% else %}
+						<article class="col-1">
+					{% endif %}
+							<div class="prev-indent-bot">
+								<figure class="img-border"><a href="#"><img src="{{ asset('bundles/vmvm/images/page3-img9.jpg') }}" alt="" /></a></figure>
+								<div class="clear"></div>
+							</div>
+							<h6><a target="blank" href="{{ path('vm_knowledge_show', { 'category': category.nameslug, 'id': entity.id, 'title': entity.titleslug, 'writer': entity.writerslug }) }}">{{ entity.title }}</a></h6>
+							<p class="p2">{{ entity.chunkknowledge }}</p>
+						</article>
+					{% endfor %}
+					</div>
+				</div>
+				<div class="pagination_desc">
+			<strong>
+				 {% if last_page > 1 %}
+            <a href="{{ path('vm-category_show', { 'slug': category.slug, 'page': 1 }) }}">
+               Awal
+            </a>
+ 
+            <a href="{{ path('vm-category_show', { 'slug': category.slug, 'page': previous_page }) }}">
+               Sebelumnya 
+            </a>
+ 
+            {% for page in 1..last_page %}
+                {% if page == current_page %}
+                    {{ page }}
+                {% else %}
+                    <a href="{{ path('vm-category_show', { 'slug': category.slug, 'page': page }) }}">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+ 
+            <a href="{{ path('vm-category_show', { 'slug': category.slug, 'page': next_page }) }}">
+               Berikutnya
+            </a>
+ 
+            <a href="{{ path('vm-category_show', { 'slug': category.slug, 'page': last_page }) }}">
+               Terakhir 
+            </a>
+    {% endif %}
+ 
+    
+       || {{ total_knowledge }}</strong> ilmu di kategori {{ category.name }}
+ 
+        {% if last_page > 1 %}
+            - page <strong>{{ current_page }}/{{ last_page }}</strong>
+        {% endif %}
+    </div>
+			</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'VmVmBundle::layout.html.twig' %}
+{% block content %}
+			<div class="main">
+				<div class="indent-left">
+					<div class="wrapper">
+					<h3>{{ entity.category }}</h3>
+					<h3>{{ entity.title }}</h3><p>{{ entity.knowledge }}</p>
+					<p>Oleh: {{ entity.writer }}, mail: {{ entity.writeremail }}</p>
+					<a class="button" href="{{ path('vm_knowledge') }}">Home</a>
+					<p><h3>Komentar:</h3></p>
+					<ul class="list-1">
+					{% if comment %}
+					{% for comments in comment %}
+					<li><b style="text-align:right;">{{ comments.commenter }}:</b><br>{{ comments.comments }}</li>
+					{% endfor %}
+					{% else %}
+					<li>Belum ada</li>
+					{% endif %}
+					</ul><br>
+					{% for flashMessage in app.session.flashbag.get('notice') %}
+						<div class="flash_notice">
+							<b><font style="color:green;">{{ flashMessage }}</font></b>
+						</div>
+					{% endfor %}
+					<p><h3>Tulis Komentar:</h3></p>
+					<article class="col-2">
+					{{ form_start(form, {'attr': {'id':'contact-form'}}) }}
+						{{ form_errors(form) }}
+						<fieldset>
+								{{ form_label(form.nama) }}
+								{{ form_errors(form.nama) }}
+							<label>
+								{{ form_widget(form.nama) }}
+							</label>
+								{{ form_label(form.email) }}
+								{{ form_errors(form.email) }}
+							<label>
+								{{ form_widget(form.email) }}
+							</label>
+								{{ form_label(form.comment) }}
+								{{ form_errors(form.comment) }}
+								{{ form_widget(form.comment) }}
+							<div class="buttons-wrapper">
+								{{ form_widget(form.submit, {'attr': {'class': 'button'}}) }}
+							</div>
+						</fieldset>
+						{{ form_end(form) }}
+						</article>
+					</div>
+				</div>
+			</div>
+{% endblock %}
+		

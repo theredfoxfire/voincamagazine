@@ -1,0 +1,53 @@
+Vm\VmBundle\Entity\Knowledge:
+ type: entity
+ repositoryClass: Vm\VmBundle\Repository\KnowledgeRepository
+ table: knowledge
+ id:
+  id:
+   type: integer
+   generator: { strategy: AUTO }
+ fields:
+  writer:
+   type: string
+   length: 255
+  image:
+   type: string
+   length: 255
+   nullable: true
+  title:
+   type: string
+   length: 200
+  knowledge:
+   type: text
+  token:
+   type: string
+   length: 255
+   unique: true
+  is_activated:
+   type: boolean
+   nullable: true
+  writer_email:
+   type: string
+   length: 255
+  created_at:
+   type: datetime
+  updated_at:
+   type: datetime
+   nullable: true
+ manyToOne:
+  category:
+   targetEntity: Category
+   inversedBy: knowledges
+   joinColumn:
+    name: category_id
+    referencedColumnName: id
+ oneToMany:
+  comments:
+   targetEntity: Comments
+   mappedBy: knowledges
+ lifecycleCallbacks:
+  prePersist: [ setTokenValue, preUpload, setCreatedAtValue ]
+  preUpdate: [ preUpload, setUpdatedAtValue, removeUpdate ]
+  postPersist: [ upload, updateLuceneIndex ]
+  postUpdate: [ upload, updateLuceneIndex ]
+  postRemove: [ removeUpload, deleteLuceneIndex ]

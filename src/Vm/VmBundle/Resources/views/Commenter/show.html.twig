@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Commenter</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nama</th>
+                <td>{{ entity.nama }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Token</th>
+                <td>{{ entity.token }}</td>
+            </tr>
+            <tr>
+                <th>Is_approved</th>
+                <td>{{ entity.isapproved }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ entity.createdat|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ entity.updatedat|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('vm-commenter') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('vm-commenter_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+vm-comments:
+    path:     /
+    defaults: { _controller: "VmVmBundle:Comments:index" }
+
+vm-comments_show:
+    path:     /{id}/show
+    defaults: { _controller: "VmVmBundle:Comments:show" }
+
+vm-comments_new:
+    path:     /new
+    defaults: { _controller: "VmVmBundle:Comments:new" }
+
+vm-comments_create:
+    path:     /create
+    defaults: { _controller: "VmVmBundle:Comments:create" }
+    requirements: { _method: post }
+
+vm-comments_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VmVmBundle:Comments:edit" }
+
+vm-comments_update:
+    path:     /{id}/update
+    defaults: { _controller: "VmVmBundle:Comments:update" }
+    requirements: { _method: post|put }
+
+vm-comments_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VmVmBundle:Comments:delete" }
+    requirements: { _method: post|delete }

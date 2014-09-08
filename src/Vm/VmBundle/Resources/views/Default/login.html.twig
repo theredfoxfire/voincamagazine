@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+		{% block title %}
+                VoincaMagazine-Explore your brain!
+        {% endblock %}
+		</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			{% block stylesheets %}
+						<link rel="stylesheet" href="{{ asset('bundles/vmvm/css/stylelog.css') }}" type="text/css" media="all" />
+			{% endblock %}
+			{% block javascripts %}
+						<script type="text/javascript" src="{{ asset('bundles/vmvm/js/prefixfree.min.js') }}"></script>
+						<script type="text/javascript" src="{{ asset('bundles/vmvm/js/jquery.js') }}"></script>
+			{% endblock %}
+		<link rel="icon" sizes="16x16" href="{{ asset('favicono.ico') }}" />
+	</head>
+<body>
+{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
+
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Voinca<span>Magazine</span></div>
+		</div>
+		<br>
+		<div class="login">
+		<form action="{{ path('login_check') }}" method="post">
+				<b>Username:</b><br>
+				<input type="text" id="username" name="_username" value="{{ last_username }}" /><br>
+ 
+				<b>Password:</b><br>
+				<input type="password" id="password" name="_password" />
+ 
+				<button type="submit">login</button>
+		</form>
+		</div>
+</body>
+
+</html>
